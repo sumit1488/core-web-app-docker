@@ -24,10 +24,13 @@ jobs:
       uses: actions/setup-java@v3.9.0
       with:
         # The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file
-        java-version: 17
+        java-version: '11'
+        distribution: 'temurin'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: print java version
+      run: java --version
